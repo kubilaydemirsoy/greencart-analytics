@@ -1,42 +1,31 @@
-# 🛒 Green Cart Analytics: E-Ticaret Veri Analizi ve Zaman Serisi Tahmini
+# 🌍 GreenCart Analytics: Sürdürülebilir E-Ticaret ve Akıllı Lojistik
 
-Bu proje, gerçek dünya e-ticaret işlem verileri kullanılarak gerçekleştirilen Keşifçi Veri Analizi (EDA) ve Zaman Serisi Tahmini (Forecasting) çalışmalarını içermektedir. Temel amaç, müşteri satın alma kalıplarını ortaya çıkarmak, eksik verileri işlemek, satış trendlerini görselleştirmek ve gelişmiş tahmin modelleri kullanarak gelecekteki satışları öngörmektir.
+## 📝 Proje Hakkında
+GreenCart Analytics, e-ticaret satış verilerini klasik "kâr optimizasyonu" yerine **çevresel sürdürülebilirlik ve karbon ayak izi minimizasyonu** hedefiyle inceleyen kapsamlı bir veri bilimi projesidir. Bu proje; gereksiz lojistik hareketliliğini, dürtüsel alışveriş kaynaklı iade atıklarını ve fazla üretimden doğan stok israfını makine öğrenmesi algoritmalarıyla tespit edip engellemeyi amaçlar.
 
-## 📊 Proje Özeti
-Bu çalışmada, e-ticaret veri seti üzerinden eyleme dönüştürülebilir içgörüler elde edilmiştir. Çalışma akışı şu adımları içermektedir:
-* **Veri Temizleme ve Ön İşleme:** Eksik değerlerin ele alınması ve tarih formatlarının düzenlenmesi.
-* **Keşifçi Veri Analizi (EDA):** Satış trendlerinin, müşteri coğrafi dağılımının ve en çok satan ürünlerin görselleştirilmesi.
-* **Zaman Serisi Tahmini:** Geçmiş verilere dayanarak gelecekteki satış trendlerini tahmin etmek için **Prophet** modelinin kullanılması.
+## 🎯 Temel Hedefler ve İş Çıktıları (Actionable Insights)
+* **Karbon İsrafı Şampiyonları:** İade oranı %100'ü aşan ve çifte kargo emisyonu yaratan problemli ürünlerin tespiti.
+* **Küresel Lojistik Optimizasyonu:** İngiltere'den Avustralya gibi uzak rotalara giden tekil kargoların yarattığı devasa karbon ayak izinin 3 boyutlu küresel haritalanması.
+* **Dürtüsel Alışverişin Engellenmesi:** Salı ve Perşembe sabah 11:00 ile Pazartesi 13:00'te zirve yapan hatalı/iade edilecek sipariş saatlerinin Isı Haritası (Heatmap) ile tespiti.
+* **Sıfır Atık Depo Yönetimi:** Geleneksel "stokta bulunsun" mantığı yerine, veri güdümlü üst limitler belirleyerek çürüyen/atığa dönüşen envanter maliyetlerinin sıfırlanması.
 
-## 🛠️ Kullanılan Teknolojiler ve Kütüphaneler
-Proje, Google Colab ortamında Python kullanılarak geliştirilmiştir. Öne çıkan kütüphaneler şunlardır:
-* **Veri İşleme:** `pandas`, `numpy`
-* **Veri Görselleştirme:** `matplotlib`, `seaborn`, `plotly.express`, `missingno`
-* **Zaman Serisi Tahmini:** `prophet`
+## 🧠 Geliştirilen Analitik Modeller ve Algoritmalar
+* **Green RFM Segmentasyonu:** Müşterileri ne kadar para harcadıklarına göre değil; iade (kargo israfı) sıklıklarına ve sepet verimliliklerine göre *Standart, Çevre Dostu* ve *Riskli (Yüksek Karbon)* olarak gruplandıran özgün RFM yaklaşımı.
+* **Apriori Algoritması ile Sepet Birleştirme:** Alman pazarındaki alışveriş kalıplarını analiz ederek "Birlikte Alınan" ürünlerin tespiti (Örn: Red Retrospot Çanta alanların %84 ihtimalle Woodland Çanta alması). Bu kural sayesinde ürünler tek kargoda birleştirilerek lojistik emisyonu yarı yarıya düşürülmüştür.
+* **Prophet ile Zaman Serisi ve Talep Tahmini:** Gelecek 90 günün optimum günlük talep miktarının %95 güven aralığı ile tahmin edilmesi ve üretim bantları için kesin "Üst Sınır (yhat_upper)" kotalarının belirlenmesi.
+* **Ağ Analizi (Network Graph):** Birlikte satın alınan ve tek kargoda birleştirilmeye en uygun kilit (Hub) ürün kümelerinin interaktif tespiti.
 
-## 📂 Veri Seti Hakkında
-Kullanılan veri seti, İngiltere merkezli çevrimiçi bir perakende şirketinin uluslararası işlemlerini içermektedir. 
-**Not:** Veri seti boyutu büyük olduğu için GitHub'a **`ecommerce.rar`** olarak sıkıştırılarak yüklenmiştir.
+## 🛠️ Kullanılan Teknolojiler
+* **Programlama Dili:** Python
+* **Veri İşleme:** Pandas, NumPy
+* **Makine Öğrenmesi & İstatistik:** Facebook Prophet (Zaman Serisi), MLxtend (Apriori Algoritması)
+* **Ağ Analizi:** NetworkX
+* **Veri Görselleştirme:** Plotly (İnteraktif 3D Küre ve Zaman Çizelgeleri), Seaborn, Matplotlib, Missingno
 
-* **InvoiceNo:** Fatura numarası. Her işleme atanan 6 haneli benzersiz numara.
-* **StockCode:** Ürün (stok) kodu.
-* **Description:** Ürün adı.
-* **Quantity:** Her işlemdeki ürün miktarı.
-* **InvoiceDate:** Fatura tarihi ve saati.
-* **UnitPrice:** Birim fiyat. Ürünün sterlin cinsinden fiyatı.
-* **CustomerID:** Müşteri numarası. Her müşteriye atanan 5 haneli benzersiz numara.
-* **Country:** Ülke adı. Müşterinin ikamet ettiği ülke.
-
-## 🚀 Projeyi Çalıştırma Adımları
-Projeyi kendi bilgisayarınızda veya Colab üzerinde çalıştırmak için aşağıdaki adımları izleyin:
-
-1. Bu depoyu (repository) yerel makinenize klonlayın:
-   ```bash
-   git clone [https://github.com/kullanici-adiniz/greencart-analytics.git](https://github.com/kullanici-adiniz/greencart-analytics.git)
-2. Depo içindeki ecommerce.rar dosyasını aynı klasör dizinine çıkartın (WinRAR, 7-Zip vb. kullanarak). Çıkarma işlemi sonucunda ecommerce.csv dosyasını elde edeceksiniz.
-
-3. greencartanalytics.ipynb dosyasını Google Colab veya Jupyter Notebook üzerinden açın.
-
-4. Çıkarttığınız ecommerce.csv dosyasının notebook ile aynı dizinde olduğundan emin olun (veya Colab kullanıyorsanız oturumunuza yükleyin).
-
-5. Analizleri ve tahminleri görmek için hücreleri sırasıyla çalıştırın.
+## 🚀 Kurulum ve Çalıştırma
+1. Bu repoyu bilgisayarınıza klonlayın:
+   `git clone https://github.com/kullaniciadi/greencart-analytics.git`
+2. Gerekli Python kütüphanelerini yükleyin:
+   `pip install pandas numpy matplotlib seaborn plotly missingno prophet mlxtend networkx`
+3. Veri setini (`ecommerce.csv`) ana dizine ekleyin.
+4. `greencartanalyticsders.ipynb` dosyasını Jupyter Notebook veya Google Colab üzerinde açarak hücreleri sırasıyla çalıştırın.
